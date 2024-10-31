@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASIC/DEPT® - Digital Branding & Product Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #252422;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        .main-header {
+            background: transparent;
+            padding: 10px 0;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+
+        .main-header.scrolled {
+            background: #000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #f2a900;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(20, 20, 37); 
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hero-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Ensure the image is behind text */
+        }
+
+        .hero-content {
+            animation: fadeIn 2s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: slideDown 1.5s ease-out forwards;
+            color: white; /* Ensure contrast */
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out 1s forwards;
+            color: white; /* Ensure contrast */
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            background-color: rgb(60, 43, 95);
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            animation: bounceIn 1.5s ease-out 1.5s forwards;
+            transform: scale(1);
+        }
+
+        .cta-button:hover {
+            background-color: #d18a00;
+            transform: scale(1.05);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .appear {
+            opacity: 1;
+        }
+
+        .main-footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            color: #fff;
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+
+        .section img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+            margin-top: 20px;
+            position: relative;
+            z-index: 0;
+        }
+
+        .section h2,
+        .section p {
+            position: absolute;
+            color: white;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .section h2 {
+            top: 20px; 
+            font-size: 2rem;
+        }
+
+        .section p {
+            top: 70px; 
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                background-color: #000;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="#" class="logo">BASIC/DEPT®</a>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="hero" class="hero-section fade-in">
+        <img src="https://images.squarespace-cdn.com/content/v1/651c3a6199c20a6c48df0769/15ef8611-eb33-4378-aa20-44c497a31923/LOCP_STATIC_CLEAN_GIF_LOOP-optimized.gif" alt="Background Animation" />
+        
+        <div class="hero-content">
+            <h1>Digital Branding & Product Design Agency</h1>
+            <p>Designing experiences for leading brands globally.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about" class="section fade-in">
+        <h2>About Us</h2>
+        <p>We are a digital branding and product design agency committed to delivering exceptional experiences.</p>
+        <img src="https://cdn.sanity.io/images/8nn8fua5/production/ead0a1be85db6e308cff0308de4a03f1d39a02a9-720x903.jpg?w=720&fm=webp&q=65" alt="About Us Image" />
+    </section>
+
+    <section id="services" class="section fade-in">
+        <h2>Our Services</h2>
+        <p>We offer a range of services to meet your branding and design needs.</p>
+        <img src="https://cdn.sanity.io/images/8nn8fua5/production/efe6bb29a36ac6c1c3910e05109a8fcdff26f110-720x900.jpg?w=720&fm=webp&q=65" alt="Our Services Image" />
+    </section>
+
+    <section id="contact" class="section fade-in">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us for inquiries or collaborations.</p>
+        <img src="https://cdn.sanity.io/images/8nn8fua5/production/cb0aa290219a3dc370e4b6a6c4f4b3effee44767-1736x2430.jpg?w=720&fm=webp&q=65" alt="Contact Us Image" />
+    </section>
+
+    <footer class="main-footer">
+        <p>© BASIC/DEPT® Agency</p>
+    </footer>
+    
+    <script>
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -200px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('appear');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        fadeElements.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
